@@ -1,0 +1,95 @@
+<div class="container pt-5">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Reporte diario</h5>
+            <p class="card-text">Se mostrará su reporte de ayer</p>
+            <a  class="btn btn-primary" (click)="dia()">Generar</a>
+          </div>
+        </div>
+        <div class="col-12 pt-4">
+    <table class="w-100" border="solid 1px">
+      <tr>
+        <td>Nombre</td>
+        <td>Cantidad</td>
+      </tr>
+      <tr *ngFor="let p of pedidosDia">
+        <td>{{p.nombre}}</td>
+        <td>{{p.cantidad}}</td>
+      </tr>
+    </table>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Reporte dia especifico</h5>
+            <p class="card-text">Se mostrará su reporte de un dia en especifico</p>
+            <form>
+              <input type="date" class="form-control" name="fecha" [(ngModel)]="fecha">
+            </form>
+            <br>
+            <a  class="btn btn-primary" (click)="diaEspecifico()">Generar</a>&nbsp;
+            <a  class="btn btn-primary" (click)="generarReporteDiaEspecifico()">Buscar</a>
+          </div>
+        </div>
+        <div class="col-12 pt-4">
+    <table class="w-100" border="solid 1px">
+      <tr>
+        <td>Nombre</td>
+        <td>Cantidad</td>
+      </tr>
+      <tr *ngFor="let p of pedidosDiaEspecifico">
+        <td>{{p.nombre}}</td>
+        <td>{{p.cantidad}}</td>
+      </tr>
+    </table>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Reporte semanal</h5>
+            <p class="card-text">Se mostrará su reporte de hoy a 7 días atrás</p>
+            <a  class="btn btn-primary" (click)="semana()">Generar</a>
+          </div>
+        </div>
+        <div class="col-12 pt-4">
+    <table class="w-100" border="solid 1px">
+      <tr>
+        <td>Nombre</td>
+        <td>Cantidad</td>
+      </tr>
+      <tr *ngFor="let p of pedidosSem">
+        <td>{{p.nombre}}</td>
+        <td>{{p.cantidad}}</td>
+      </tr>
+    </table>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Reporte mensual</h5>
+            <p class="card-text">Se mostrará su reporte de hoy a 30 días atrás</p>
+            <a class="btn btn-primary" (click)="mes()">Generar</a>
+          </div>
+        </div>
+        <div class="col-12 pt-4">
+            <table class="w-100" border="1px">
+              <tr>
+                <td>Nombre</td>
+                <td>Cantidad</td>
+              </tr>
+              <tr *ngFor="let p of pedidosMes">
+                <td>{{p.nombre}}</td>
+                <td>{{p.cantidad}}</td>
+              </tr>
+            </table>
+                </div>
+      </div>
+    </div>
+    </div>
+    
+    

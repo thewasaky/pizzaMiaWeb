@@ -1,0 +1,66 @@
+<!-- en este cuadro se visualiza la tabla con todos los clientes -->
+<div class="jumbotron " style="border-radius: 55px 55px 55px 55px;
+-moz-border-radius: 55px 55px 55px 55px;
+-webkit-border-radius: 55px 55px 55px 55px;
+border: 0px solid #000000; ">  
+<div class="container">
+  <table border="1px" width="100%" style="text-align: center; ">
+    <tr>
+      <td>
+Nombre Cliente
+      </td>
+      <td>Fecha de creación de usuario</td>
+      <td>Ver pedidos</td>
+    </tr>
+    <tr *ngFor="let c of cliente">
+      <td>
+        {{c.nombre}}
+      </td>
+      <td>
+        {{c.fecha}}
+      </td>
+      <td style="text-align: center">
+        <button (click)="SeleccionarCliente(c.idUsuario)" data-toggle="modal" data-target="#exampleModal3"><i class="fas fa-clipboard"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+  
+<!-- En este recuadro se ven los pedidos de cada cliente-->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table border="1px" width="100%">
+          <tr>
+            <td>Nombre</td>
+            <td>Pedido</td>
+            <td>Descripción</td>
+          </tr>
+          <tr *ngFor="let b of tacos">
+            <td>
+              {{b.nombre}}
+            </td>
+            <td>
+              {{b.cantidad}}
+            </td>
+            <td>
+              {{b.descripcion}}
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cerrarModal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
