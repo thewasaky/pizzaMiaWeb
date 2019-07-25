@@ -11,6 +11,7 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { CookieService } from 'ngx-cookie-service';
 import { UsuariosService } from "./usuarios.service";
 import { FormsModule } from "@angular/forms";
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FormsModule } from "@angular/forms";
   ],
   providers: [
     UsuariosService,
-    CookieService
+    CookieService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
