@@ -59,4 +59,16 @@ export class UsuariosService {
   pruebasms(){
     return this.http.get(`${this.url}pruebasms.php`);
   }
+  altaProducto(nombre:string,cantidad:number){
+    return this.http.get(`${this.url}AltaProducto.php?nombre=${nombre}&cantidad=${cantidad}`);
+  }
+  obtenerProductos(){
+    return this.http.get(`${this.url}ObtenerProductos.php`);
+  }
+  seleccionarProducto(idProducto:number){
+    return this.http.get(`${this.url}SeleccionarProducto.php?idProducto=${idProducto}`);
+  }
+  editarProducto(nombre:string,cantidad:number,id:number){
+    return this.http.get(`${this.url}EditarProducto.php?nombre=${nombre}&cantidad=${cantidad}&id=${id}`);
+  }
 }

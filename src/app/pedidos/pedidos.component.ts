@@ -16,6 +16,7 @@ export class PedidosComponent implements OnInit {
     nombre:null,
     telefono:null,
     cantidad:null,
+    fecha:null,
     descripcion:null
   }
   up=true;
@@ -104,6 +105,7 @@ export class PedidosComponent implements OnInit {
         nombre:null,
         telefono:null,
         cantidad:null,
+        fecha:null,
         descripcion:null
       }
     }

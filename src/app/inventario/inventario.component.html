@@ -1,1 +1,71 @@
-<p>inventario works!</p>
+<div class="container">
+    <div class="row d-flex">
+        <div class="col">
+            <button type="button" (click)="ponerCeros()" class="btn btn-primary"  data-toggle="modal" data-target="#nuevoProducto">añadir un producto</button>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="w-100">
+          <tr>
+            <td>Producto</td>
+            <td>Cantidad</td>
+            <td>Editar</td>
+          </tr>
+          <tr *ngFor="let a of productos">
+            <td>{{a.nombreProducto}}</td>
+            <td>{{a.cantidad}}</td>
+            <td><button (click)="editProducto(a.idProducto)"  data-toggle="modal" data-target="#nuevoProducto"><i class="fas fa-edit"></i></button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="nuevoProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Productos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form >
+              <div >
+                  <span>Nombre Producto</span>
+                <input type="text" class="form-control" name="nombreProducto" [(ngModel)]="nombreProducto">
+              </div>
+              <br>
+              <div >
+                    <span>Cantidad</span>
+                  <input type="number" class="form-control" name="cantidad" [(ngModel)]="cantidad">
+                </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cerrarModal2" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="saveProducto()" *ngIf="productoEdit==0; else editing">Guardar</button>
+          <ng-template #editing>
+            <button type="button" class="btn btn-primary" (click)="updateProducto()" >Actualizar producto</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
