@@ -36,7 +36,6 @@ export class InventarioComponent implements OnInit {
   getProductos(){
     this.usuariosServicio.obtenerProductos().subscribe(
       result=>{
-        
         if(result[0]!=null){
           this.productos=result;
         }else{
