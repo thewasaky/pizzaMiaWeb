@@ -10,6 +10,7 @@ import * as jsPDF from 'jspdf';
 })
 export class PedidosComponent implements OnInit {
   pedidos=null;
+  pedidosSin=null;
   pedido={
     idUsuario:null,
     id:null,
@@ -44,12 +45,14 @@ export class PedidosComponent implements OnInit {
 }
   ngOnInit() {
     this.obtenerPedidos();
+    this.obtenerPedidosSin();
   }
   AltaPedido() {
     this.usuariosServicio.altaPedido(this.pedido).subscribe(
       datos => {
         if(datos['resultado'] == 'OK') {
           alert(datos['mensaje']);
+          this.nuevoPedido();
           this.obtenerPedidos();
         }
       }
@@ -58,11 +61,54 @@ export class PedidosComponent implements OnInit {
   }
   obtenerPedidos() {
     this.usuariosServicio.obternerPedidos().subscribe(
-      result => this.pedidos = result,
+      result => {
+        if(result[0]!=null){
+          this.pedidos = result
+        }else{
+          this.pedidos=null;
+        }
+      
+      },
       
     );
     
   }
+
+  obtenerPedidosSin() {
+    this.usuariosServicio.obternerPedidosSin().subscribe(
+      result => {
+        if(result[0]!=null){
+          this.pedidosSin = result;
+          
+        }else{
+          this.pedidosSin=null;
+        }
+      
+      },
+      error=>console.log(error)
+      
+    );
+    
+  }
+  aceptarPedido(id,tel){
+    this.usuariosServicio.aceptarPedido(id).subscribe(
+      datos=>{
+        if(datos['resultado']=='OK'){
+          alert(datos['mensaje']);
+         
+          this.test(tel);
+          this.obtenerPedidosSin();
+        }
+      }
+    );
+
+  }
+  test(tel) {
+    this.usuariosServicio.pruebasms(tel).subscribe();
+    
+  }
+
+
   bajaPedido(idPedido) {
     
     this.usuariosServicio.bajaPedido(idPedido).subscribe(

@@ -14,8 +14,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  test() {
-    this.usuariosServicio.pruebasms().subscribe();
-    
-  }
+  
 }

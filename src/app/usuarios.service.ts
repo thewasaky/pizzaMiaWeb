@@ -56,8 +56,11 @@ export class UsuariosService {
   obternerPedidosDiaEspecifico(fecha:Date){
     return this.http.get(`${this.url}ObtenerPedidosDiaEspecifico.php?fecha=${fecha}`);
   }
-  pruebasms(){
-    return this.http.get(`${this.url}pruebasms.php`);
+  pruebasms(tel:String){
+    var cos={
+      telefono:tel
+    }
+    return this.http.post(`${this.url}pruebasms.php`,JSON.stringify(cos));
   }
   altaProducto(nombre:string,cantidad:number){
     return this.http.get(`${this.url}AltaProducto.php?nombre=${nombre}&cantidad=${cantidad}`);
@@ -71,4 +74,15 @@ export class UsuariosService {
   editarProducto(nombre:string,cantidad:number,id:number){
     return this.http.get(`${this.url}EditarProducto.php?nombre=${nombre}&cantidad=${cantidad}&id=${id}`);
   }
+  obternerPedidosSin(){
+    return this.http.get(`${this.url}ObtenerPedidosSinConf.php`);
+  }
+  aceptarPedido(id:number){
+    var cos={
+      idPedido:id
+    }
+    return this.http.post(`${this.url}AceptarPedido.php`,JSON.stringify(cos));
+  }
+
+
 }
