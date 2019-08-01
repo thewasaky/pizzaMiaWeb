@@ -17,6 +17,7 @@ export class AppComponent {
     idUsuario:null,
     nombre:null,
     email:null,
+    idPerfil:null,
     password:null
   }
   usuarioRegister={
@@ -79,7 +80,10 @@ export class AppComponent {
   }
   //este metodo es el que crea el estado de LogedIn
   changeLoged(){
-    var date=new Date();
+    if(this.usuario.idPerfil!=1){
+      alert('Esta pagina es unicamente para administradores')
+    }else{
+      var date=new Date();
     date.setDate(date.getDate()+1);
     this.cookie.set("logged","1",date);
     this.cookie.set("idUsuario",this.usuario.idUsuario,date);
@@ -87,6 +91,8 @@ export class AppComponent {
     this.idUsuario=this.cookie.get("idUsuario");
    
     document.getElementById("cerrarModal").click();
+    }
+    
     /*
     if(this.usuario.idUsuario!=null || this.cookie.get("logged")!=null ){
       var date=new Date();

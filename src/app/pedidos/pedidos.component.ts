@@ -27,20 +27,38 @@ export class PedidosComponent implements OnInit {
   }
   generarPDF(){
     var doc = new jsPDF();
-   
-    doc.text("nombre         |   telefono        |      cantidad      |      descripcion ",30,20);
-    var i=40;
-  /* this.pedidos.forEach(function (value) {
-    var text=("NOMBRE: "+value.nombre+" TELEFONO: "+value.telefono+" CANTIDAD: "+value.cantidad+" DESCRIPCION: "+value.descripcion);
+    var i=20;
+   doc.text("Pizza Mía Reporte Semanal",70,i);
+   i=i+20;
+     var num=1;
+   this.pedidos.forEach(function (value) {
+    var text=("PEDIDO:"+num);
+    var split = doc.splitTextToSize(text, 180);
+    doc.text(split,10,i);
+    i=i+10;
+    var text=("NOMBRE: "+value.nombre);
+    var split = doc.splitTextToSize(text, 180);
+    doc.text(split,10,i);
+    i=i+10;
+    var text=("TELÉFONO: "+value.telefono);
+    var split = doc.splitTextToSize(text, 180);
+    doc.text(split,10,i);
+    i=i+10;
+    var text=("CANTIDAD: "+value.cantidad);
+    var split = doc.splitTextToSize(text, 180);
+    doc.text(split,10,i);
+    i=i+10;
+    var text=("DESCRIPCIÓN: "+value.descripcion);
     var split = doc.splitTextToSize(text, 180);
     doc.text(split,10,i);
     i=i+20;
+    num++;
+    if(i>=280){
+      doc.addPage();
+      i=40;
+    }});
   
-  });*/
-  /*doc.fromHTML($('#cont').get(0), 15, 15, {
-    'width': '1800px'
-});*/
-    doc.save('test.pdf');
+    doc.save('ReporteDiario.pdf');
     
  
 }
