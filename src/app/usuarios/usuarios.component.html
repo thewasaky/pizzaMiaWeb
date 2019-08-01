@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <br>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalU">Añadir nuevo usuario</button>
+            <br>
+            <br>
+            <table border="3px" class="w-100">
+                <tr>
+                    <td>nombre</td>
+                    <td>tipo de usuario</td>
+                </tr>
+                <tr *ngFor="let a of usuarios">
+                    <td >{{a.nombre}}</td>
+                    <td>{{a.perfil}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalU" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+              <label >nombre</label>
+              <input class="form-control" type="text" name="nombre" [(ngModel)]="usuario.nombre">
+              <br>
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="usuario.email">
+              <br>
+              <label>password</label>
+              <input type="password" class="form-control" name="passwd" [(ngModel)]="usuario.password">
+              <br>
+              <label>Perfil</label>
+              <select name="perfil" id="" class="form-control" [(ngModel)]="usuario.perfil">
+                  <option value="0" selected>Seleccione ↡</option>
+                  <option value="3">Empleado</option>
+                  <option value="2" >Cliente</option>
+                  <option value="1">Administrador</option>
+              </select>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrarModal43">Close</button>
+          <button type="button" class="btn btn-primary" (click)="altaUsuario()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -27,6 +27,9 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['./clientes']">Clientes</a>
       </li>  
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['./usuarios']">Usuarios</a>
+      </li>  
 
     </ul>
     <div style="align-items: center" class="offset-lg-6">
@@ -66,7 +69,9 @@
         <li class="nav-item">
           <a class="nav-link disabled" [routerLink]="['/clientes']">Clientes</a>
         </li>  
-  
+        <li class="nav-item">
+          <a class="nav-link disabled" [routerLink]="['./usuarios']">Usuarios</a>
+        </li> 
       </ul>
       <div style="align-items: center" class="offset-lg-6">
         <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal">
@@ -139,6 +144,14 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword31" placeholder="Password" name="password" [(ngModel)]="usuarioRegister.password">
           </div>
+          <label>Perfil</label>
+              <select name="perfil" id="" class="form-control" [(ngModel)]="usuarioRegister.perfil">
+                  <option value="0" selected>Seleccione ↡</option>
+                  <option value="3">Empleado</option>
+                  <option value="2" >Cliente</option>
+                  <option value="1">Administrador</option>
+              </select>
+              <br>
           
           <button id="inis" (click)="AltaUsuario()"class="btn btn-primary">Registrarse</button>
           

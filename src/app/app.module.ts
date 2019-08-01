@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { UsuariosService } from "./usuarios.service";
 import { FormsModule } from "@angular/forms";
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
     HomeComponent,
     InventarioComponent,
     PedidosComponent,
-    ReportesComponent
+    ReportesComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

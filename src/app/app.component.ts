@@ -22,7 +22,8 @@ export class AppComponent {
   usuarioRegister={
     nombre:null,
     email:null,
-    password:null
+    password:null,
+    perfil:0
   }
  LogedIn=false;
  testini=true;
@@ -33,12 +34,13 @@ export class AppComponent {
     
   }
   ngOnInit(){
-   this.obtenerUsuarios();
+   //this.obtenerUsuarios();
    this.checkUser();
   }
   //verifica si el usuario inicio sesion, si no es asi, lo redirige a home
   checkUser(){
-    if(this.cookie.check("logged")==null){
+  
+    if(this.cookie.get("logged")==""){
       this.router.navigate(['/home']);
     }else{
       this.LogedIn=true;
@@ -110,6 +112,11 @@ export class AppComponent {
   }
  
   AltaUsuario() {
+    if(this.usuarioRegister.perfil==0){
+
+    }else{
+
+    
     this.usuariosServicio.altaUsuarios(this.usuarioRegister).subscribe(
       datos => {
         if(datos['resultado'] == 'OK') {
@@ -118,5 +125,5 @@ export class AppComponent {
       }
     );
     document.getElementById('botoncerrar2').click();
-  }
+  }}
 }
