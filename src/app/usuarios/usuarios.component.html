@@ -7,8 +7,8 @@
             <br>
             <table border="3px" class="w-100">
                 <tr>
-                    <td>nombre</td>
-                    <td>tipo de usuario</td>
+                    <td>Nombre</td>
+                    <td>Tipo de usuario</td>
                 </tr>
                 <tr *ngFor="let a of usuarios">
                     <td >{{a.nombre}}</td>
@@ -35,13 +35,13 @@
         </div>
         <div class="modal-body">
           <form>
-              <label >nombre</label>
+              <label>Nombre</label>
               <input class="form-control" type="text" name="nombre" [(ngModel)]="usuario.nombre">
               <br>
               <label>Email</label>
               <input type="email" class="form-control" name="email" [(ngModel)]="usuario.email">
               <br>
-              <label>password</label>
+              <label>Password</label>
               <input type="password" class="form-control" name="passwd" [(ngModel)]="usuario.password">
               <br>
               <label>Perfil</label>
