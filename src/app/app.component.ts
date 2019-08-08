@@ -127,6 +127,12 @@ export class AppComponent {
       datos => {
         if(datos['resultado'] == 'OK') {
           alert(datos['mensaje']);
+          this.usuarioRegister={
+            nombre:null,
+            email:null,
+            password:null,
+            perfil:0
+          }
         }
       }
     );
