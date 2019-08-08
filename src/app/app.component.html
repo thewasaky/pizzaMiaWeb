@@ -97,12 +97,12 @@
         <form >
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail11" aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="usuario.email">
+            <input type="email"  required class="form-control" id="exampleInputEmail11" aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="usuario.email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword21">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword11" placeholder="Password" name="password" [(ngModel)]="usuario.password">
+            <input type="password"  required class="form-control" id="exampleInputPassword11" placeholder="Password" name="password" [(ngModel)]="usuario.password">
           </div>
           <div class="form-check">
             <!--input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -133,19 +133,19 @@
         <form >
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre</label>
-                <input type="text" class="form-control" id="exampleInputEmail21" aria-describedby="emailHelp" placeholder="Nombre" name="nombre" [(ngModel)]="usuarioRegister.nombre">
+                <input type="text"  required class="form-control" id="exampleInputEmail21" aria-describedby="emailHelp" placeholder="Nombre" name="nombre" [(ngModel)]="usuarioRegister.nombre">
               </div>
               
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail31" aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="usuarioRegister.email">
+            <input type="email"  required class="form-control" id="exampleInputEmail31" aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="usuarioRegister.email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword31" placeholder="Password" name="password" [(ngModel)]="usuarioRegister.password">
+            <input type="password"  required class="form-control" id="exampleInputPassword31" placeholder="Password" name="password" [(ngModel)]="usuarioRegister.password">
           </div>
           <label>Perfil</label>
-              <select name="perfil" id="" class="form-control" [(ngModel)]="usuarioRegister.perfil">
+              <select name="perfil" id="" class="form-control" [(ngModel)]="usuarioRegister.perfil"  required>
                   <option value="0" selected>Seleccione ↡</option>
                   <option value="3">Empleado</option>
                   <option value="2" >Cliente</option>

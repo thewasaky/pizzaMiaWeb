@@ -36,16 +36,16 @@
         <div class="modal-body">
           <form>
               <label>Nombre</label>
-              <input class="form-control" type="text" name="nombre" [(ngModel)]="usuario.nombre">
+              <input class="form-control" type="text"  required name="nombre" [(ngModel)]="usuario.nombre">
               <br>
               <label>Email</label>
-              <input type="email" class="form-control" name="email" [(ngModel)]="usuario.email">
+              <input type="email" class="form-control"  required name="email" [(ngModel)]="usuario.email">
               <br>
               <label>Password</label>
-              <input type="password" class="form-control" name="passwd" [(ngModel)]="usuario.password">
+              <input type="password" class="form-control"  required name="passwd" [(ngModel)]="usuario.password">
               <br>
               <label>Perfil</label>
-              <select name="perfil" id="" class="form-control" [(ngModel)]="usuario.perfil">
+              <select name="perfil" id="" class="form-control" [(ngModel)]="usuario.perfil"  required>
                   <option value="0" selected>Seleccione ↡</option>
                   <option value="3">Empleado</option>
                   <option value="2" >Cliente</option>
